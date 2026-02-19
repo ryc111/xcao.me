@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const distance = Math.abs(viewportCenter - panelCenter);
         // Fade zone: fully visible within 200px of center, fully hidden beyond half viewport
         const fadeRange = window.innerHeight * 0.45;
-        const opacity = Math.max(0, Math.min(1, 1 - (distance - 150) / fadeRange));
+        const opacity = Math.max(0.5, Math.min(1, 1 - (distance - 300) / fadeRange));
         const scale = 0.96 + 0.04 * opacity; // subtle scale: 0.96 → 1.0
         panel.style.opacity = opacity;
         panel.style.transform = `scale(${scale})`;

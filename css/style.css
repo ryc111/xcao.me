@@ -3,45 +3,45 @@
    ====================================== */
 
 /* --- Google Fonts --- */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
 
 /* --- CSS Variables --- */
 :root {
-  /* Colors - Zinc */
-  --zinc-50: #fafafa;
-  --zinc-100: #f4f4f5;
-  --zinc-200: #e4e4e7;
-  --zinc-300: #d4d4d8;
-  --zinc-400: #a1a1aa;
-  --zinc-500: #71717a;
-  --zinc-600: #52525b;
-  --zinc-700: #3f3f46;
-  --zinc-800: #27272a;
-  --zinc-900: #18181b;
+  /* Colors - Navy base neutrals */
+  --zinc-50: #f5f5f5;
+  --zinc-100: #ebebed;
+  --zinc-200: #d5d5da;
+  --zinc-300: #b0b0b8;
+  --zinc-400: #8a8a95;
+  --zinc-500: #5c5c68;
+  --zinc-600: #3a3a48;
+  --zinc-700: #252535;
+  --zinc-800: #1a1a2a;
+  --zinc-900: #0F1626;
 
-  /* Colors - Indigo */
-  --indigo-50: #eef2ff;
-  --indigo-100: #e0e7ff;
-  --indigo-200: #c7d2fe;
-  --indigo-300: #a5b4fc;
-  --indigo-400: #818cf8;
-  --indigo-500: #6366f1;
-  --indigo-600: #4f46e5;
-  --indigo-700: #4338ca;
+  /* Colors - Accent (Leather / Coral) */
+  --indigo-50: #f7f3f0;
+  --indigo-100: #e8ddd4;
+  --indigo-200: #d4c4b5;
+  --indigo-300: #c2ab96;
+  --indigo-400: #AB987A;
+  --indigo-500: #96845e;
+  --indigo-600: #AB987A;
+  --indigo-700: #8a7a60;
 
-  /* Colors - Emerald */
-  --emerald-400: #34d399;
-  --emerald-700: #047857;
+  /* Colors - Coral */
+  --emerald-400: #FF533D;
+  --emerald-700: #e0432d;
 
   /* Warm Colors for Background */
-  --warm-50: #fdfcfb;
-  --warm-100: #f5f0eb;
-  --warm-200: #ede5dc;
-  --warm-300: #e0d5c9;
+  --warm-50: #f5f5f5;
+  --warm-100: #f0ece8;
+  --warm-200: #e8e0d8;
+  --warm-300: #ddd4ca;
 
   /* Typography */
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-serif: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
   /* Shadows */
@@ -71,17 +71,30 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* --- Scroll Progress Bar --- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #FF533D, #e0432d);
+  z-index: 100;
+  transition: width 0.1s linear;
+  border-radius: 0 2px 2px 0;
+}
+
 body {
   min-height: 100vh;
-  background: linear-gradient(180deg, var(--warm-50) 0%, var(--warm-100) 30%, var(--warm-200) 60%, var(--warm-100) 80%, var(--warm-50) 100%);
+  background: linear-gradient(180deg, #f5f5f5 0%, #ededeb 100%);
   color: var(--zinc-800);
   font-family: var(--font-sans);
   line-height: 1.6;
 }
 
 ::selection {
-  background: var(--indigo-50);
-  color: var(--indigo-700);
+  background: rgba(255, 83, 61, 0.15);
+  color: #0F1626;
 }
 
 a {
@@ -217,7 +230,7 @@ img {
 }
 
 .nav-cta {
-  background: var(--indigo-600);
+  background: #FF533D;
   color: white;
   padding: 0.625rem 1.5rem;
   border-radius: 0.75rem;
@@ -230,8 +243,8 @@ img {
 }
 
 .nav-cta:hover {
-  background: var(--indigo-700);
-  box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.2);
+  background: #e0432d;
+  box-shadow: 0 10px 15px -3px rgba(255, 83, 61, 0.25);
 }
 
 .nav-cta:active {
@@ -326,17 +339,20 @@ img {
   max-width: 72rem;
   margin: 0 auto;
   background:
-    radial-gradient(circle at 0% 0%, rgba(184, 196, 184, 0.25) 0%, transparent 40%),
-    radial-gradient(circle at 100% 0%, rgba(228, 220, 204, 0.3) 0%, transparent 40%),
-    rgba(255, 255, 255, 0.9);
+    radial-gradient(circle at 100% 0%, rgba(171, 152, 122, 0.35) 0%, transparent 25%),
+    /* Leather tint (Top Right) */
+    radial-gradient(circle at 0% 100%, rgba(15, 22, 38, 0.12) 0%, transparent 25%),
+    /* Navy tint (Bottom Left) */
+    linear-gradient(135deg, #f7f5f2 0%, #fafafa 100%);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border-radius: var(--card-radius);
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   box-shadow:
-    0 24px 48px -12px rgba(0, 0, 0, 0.14),
-    0 0 2px rgba(0, 0, 0, 0.04),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    0 24px 64px -12px rgba(0, 0, 0, 0.15),
+    0 8px 24px -4px rgba(0, 0, 0, 0.08),
+    0 0 2px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
   transition: opacity 0.15s ease, transform 0.15s ease;
   will-change: opacity, transform;
   overflow: hidden;
@@ -458,9 +474,9 @@ img {
   align-items: center;
   gap: 0.75rem;
   padding: 0.375rem 1rem;
-  background: var(--zinc-100);
+  background: var(--indigo-50);
   border-radius: 9999px;
-  border: 1px solid var(--zinc-200);
+  border: 1px solid var(--indigo-100);
   margin-bottom: 1.5rem;
 }
 
@@ -492,7 +508,7 @@ img {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--zinc-600);
+  color: var(--indigo-600);
 }
 
 .hero-title {
@@ -505,7 +521,7 @@ img {
 }
 
 .hero-title-accent {
-  color: var(--indigo-600);
+  color: #FF533D;
   font-style: italic;
 }
 
@@ -546,9 +562,44 @@ img {
   transition: color 0.2s;
 }
 
+/* --- Hero Tags & Buttons --- */
+.hero-tag {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #0F1626;
+  background: rgba(171, 152, 122, 0.2);
+  padding: 0.35rem 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(171, 152, 122, 0.25);
+}
+
+.btn-subtle {
+  background: #0F1626;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: 1px solid #0F1626;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-md);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-subtle:hover {
+  background: #1a2440;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  color: white;
+}
+
 .hero-meta-links a:hover {
   color: var(--indigo-600);
 }
+
 
 /* --- Animations --- */
 @keyframes ping {
@@ -583,22 +634,17 @@ img {
   letter-spacing: 0.1em;
 }
 
-.badge-primary {
-  background: var(--indigo-50);
-  color: var(--indigo-700);
-  border: 1px solid var(--indigo-100);
+/* Badge Color Variants — Navy & Leather palette */
+.badge-warm {
+  background: rgba(171, 152, 122, 0.3);
+  color: #45392e;
+  border: none;
 }
 
-.badge-default {
-  background: var(--zinc-100);
-  color: var(--zinc-600);
-  border: 1px solid var(--zinc-200);
-}
-
-.badge-emerald {
-  background: rgba(16, 185, 129, 0.05);
-  color: var(--emerald-700);
-  border-color: rgba(16, 185, 129, 0.1);
+.badge-sage {
+  background: rgba(15, 22, 38, 0.12);
+  color: #0F1626;
+  border: none;
 }
 
 /* --- Section Header --- */
@@ -615,10 +661,11 @@ img {
 
 .section-header-title {
   font-family: var(--font-serif);
-  font-size: 1.875rem;
-  font-weight: 500;
+  font-size: 2.25rem;
+  font-weight: 700;
   color: var(--zinc-900);
   white-space: nowrap;
+  letter-spacing: -0.02em;
 }
 
 .section-header-line {
@@ -705,7 +752,8 @@ img {
 
 .work-card:hover {
   border-color: var(--indigo-200);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 20px 40px -12px rgba(15, 22, 38, 0.15);
+  transform: translateY(-6px);
 }
 
 .work-card-dark {
@@ -738,6 +786,12 @@ img {
 
 .work-card-dark p {
   color: var(--zinc-400);
+}
+
+.work-card-dark .badge {
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.85);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 /* Card: Identity */
@@ -988,8 +1042,9 @@ img {
 
 .memo-card:hover {
   border-color: var(--indigo-300);
-  box-shadow: 0 15px 30px -10px rgba(79, 70, 229, 0.08);
+  box-shadow: 0 18px 36px -10px rgba(15, 22, 38, 0.12);
   background: white;
+  transform: translateY(-4px);
 }
 
 .memo-card-meta {
@@ -1017,7 +1072,7 @@ img {
 }
 
 .memo-card:hover h4 {
-  color: var(--indigo-600);
+  color: #FF533D;
 }
 
 .memo-card p {
@@ -1033,7 +1088,7 @@ img {
   gap: 0.25rem;
   font-size: 0.6875rem;
   font-weight: 700;
-  color: var(--indigo-600);
+  color: #FF533D;
   opacity: 0;
   transform: translateX(-0.5rem);
   transition: all 0.3s ease;

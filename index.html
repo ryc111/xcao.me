@@ -7,12 +7,13 @@
   <title>Carrie Cao — Product Leader</title>
   <meta name="description"
     content="Product Leader at the intersection of engineering systems and social psychology. Formerly YouTube & AWS. Currently building what's next.">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=19">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
+  <div class="scroll-progress" id="scrollProgress"></div>
 
   <!-- Navigation -->
   <nav class="nav" role="navigation" aria-label="Main navigation">
@@ -113,16 +114,22 @@
               <span class="text-highlight">engineering systems</span> and <span class="text-highlight">social
                 psychology</span>.
             </p>
+            <div class="hero-meta-links" style="gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem;">
+              <span class="hero-tag">Cross-Platform Strategy</span>
+              <span class="hero-tag">Identity & Security</span>
+              <span class="hero-tag">Creator Economy</span>
+            </div>
+
             <div class="hero-meta">
               <div class="hero-meta-location">
                 <i data-lucide="globe" style="width:16px;height:16px;color:var(--indigo-500);"></i>
                 San Francisco Bay Area
               </div>
-              <div class="hero-meta-links">
-                <a href="#">LinkedIn</a>
-                <a href="#">Twitter</a>
-                <a href="#">Read CV</a>
-              </div>
+              <a href="assets/Resume_2026.pdf" download class="btn-subtle"
+                style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none;">
+                <i data-lucide="download" style="width: 16px; height: 16px;"></i>
+                Download Resume
+              </a>
             </div>
           </div>
           <div class="card-about-right">
@@ -168,7 +175,7 @@
             <div class="work-card card-identity">
               <div class="card-identity-content">
                 <div>
-                  <span class="badge badge-primary">YouTube / Identity Systems</span>
+                  <span class="badge badge-warm">YouTube / Identity Systems</span>
                   <h3>The Zero-Friction Entryway</h3>
                   <p>Modernized legacy sign-in architectures to reduce bounce rates by 22%. Scaled intelligent device
                     pairing for living room environments.</p>
@@ -217,7 +224,7 @@
               </div>
               <div class="card-ezconnect-body">
                 <div>
-                  <span class="badge badge-default">Connected Ecosystems</span>
+                  <span class="badge badge-sage">Connected Ecosystems</span>
                   <h3>EZConnect Framework</h3>
                   <p>Unifying mobile interaction with 10-foot TV experiences to solve input fragmentation.</p>
                 </div>
@@ -254,7 +261,7 @@
           <div class="memo-grid">
             <a href="articles/unbundling-google.html" class="memo-card">
               <div class="memo-card-meta">
-                <span class="badge badge-primary">Analysis</span>
+                <span class="badge badge-warm">Analysis</span>
                 <span class="memo-card-date">2024</span>
               </div>
               <h4>Entropy's Carnival: The Battle for Attention in the AI Era</h4>
@@ -267,7 +274,7 @@
 
             <a href="articles/ad-tier-friction.html" class="memo-card">
               <div class="memo-card-meta">
-                <span class="badge badge-primary">Product Design</span>
+                <span class="badge badge-sage">Product Design</span>
                 <span class="memo-card-date">2025</span>
               </div>
               <h4>The Trap of 'Perfect Code': Why the Best Tech Doesn't Always Win</h4>
@@ -280,7 +287,7 @@
 
             <a href="articles/community-vs-content-moats.html" class="memo-card">
               <div class="memo-card-meta">
-                <span class="badge badge-primary">Platform</span>
+                <span class="badge badge-warm">Platform</span>
                 <span class="memo-card-date">Feb 2026</span>
               </div>
               <h4>The Monetization Matrix: From Attention Economy to Value Extraction Per Minute</h4>
@@ -293,7 +300,7 @@
 
             <a href="articles/short-form-saturation.html" class="memo-card">
               <div class="memo-card-meta">
-                <span class="badge badge-primary">Growth</span>
+                <span class="badge badge-sage">Growth</span>
                 <span class="memo-card-date">Feb 2026</span>
               </div>
               <h4>Dopamine Alone Is Not Enough: Defending the Moat of Long-Form Video</h4>
@@ -325,7 +332,7 @@
             <div class="work-card card-creator">
               <div class="card-creator-header">
                 <div>
-                  <span class="badge badge-default">Creator Empathy</span>
+                  <span class="badge badge-warm">Creator Empathy</span>
                   <h3>Platform Power User</h3>
                 </div>
                 <div class="card-creator-icon">
@@ -358,7 +365,7 @@
             <!-- Algorithmic Safety Gates -->
             <div class="work-card work-card-dark card-safety">
               <div style="position:relative;z-index:10;">
-                <span class="badge badge-primary">Internal Tooling</span>
+                <span class="badge badge-sage">Internal Tooling</span>
                 <h3>Algorithmic Safety Gates</h3>
                 <p>Engineered LLM-powered moderation pipelines for internal creator communities. Balancing automated
                   triage with human oversight.</p>
@@ -482,7 +489,7 @@
 
   <!-- Scripts -->
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=2"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const canvas = document.getElementById('growthChart');
@@ -500,8 +507,16 @@
         labels.push(currentDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }));
 
         let dailyGrowth = 0;
-        if (i < 850) {
+        if (i < 365) {
           dailyGrowth = Math.random() * 2;
+        } else if (i === 365) {
+          dailyGrowth = 8000;
+        } else if (i < 850) {
+          if (Math.random() < 0.06) {
+            dailyGrowth = Math.floor(Math.random() * 600) + 200;
+          } else {
+            dailyGrowth = 0;
+          }
         } else if (i === 850) {
           dailyGrowth = 25000;
         } else if (i < 910) {
@@ -510,7 +525,7 @@
           dailyGrowth = Math.random() * 400 + 50;
           if (Math.random() > 0.9) dailyGrowth += Math.random() * 500;
         }
-        if (Math.random() < 0.4 && i !== 850) dailyGrowth = 0;
+        if (Math.random() < 0.4 && i !== 365 && i !== 850) dailyGrowth = 0;
         currentFollowers += dailyGrowth;
         dataPoints.push(Math.floor(currentFollowers));
       }
@@ -595,6 +610,14 @@
           }
         }
       });
+    });
+  </script>
+  <script>
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      document.getElementById('scrollProgress').style.width = progress + '%';
     });
   </script>
 </body>
