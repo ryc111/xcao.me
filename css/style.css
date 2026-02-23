@@ -8,12 +8,12 @@
 /* --- CSS Variables --- */
 :root {
   /* Colors - Navy base neutrals */
-  --zinc-50: #f5f5f5;
-  --zinc-100: #ebebed;
-  --zinc-200: #d5d5da;
-  --zinc-300: #b0b0b8;
-  --zinc-400: #8a8a95;
-  --zinc-500: #5c5c68;
+  --zinc-50: #f0f0f0;
+  --zinc-100: #e2e2e5;
+  --zinc-200: #c8c8d0;
+  --zinc-300: #9a9aa5;
+  --zinc-400: #70707e;
+  --zinc-500: #4a4a58;
   --zinc-600: #3a3a48;
   --zinc-700: #252535;
   --zinc-800: #1a1a2a;
@@ -189,7 +189,7 @@ img {
 
 .nav-brand-name {
   font-weight: 700;
-  font-size: 0.875rem;
+  font-size: 1.125rem;
   line-height: 1;
 }
 
@@ -879,6 +879,44 @@ img {
   min-height: 200px;
 }
 
+/* Sign-in Flow Layout */
+.card-signin-flow {
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.25rem;
+  align-items: center;
+  width: 100%;
+}
+
+.signin-tv-screenshot {
+  width: 100%;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--zinc-200);
+}
+
+.signin-img-tv {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.signin-video-container {
+  width: 100%;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--zinc-200);
+  background: white;
+}
+
+.signin-flow-video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 .card-visual-device {
   position: relative;
   z-index: 10;
@@ -1518,7 +1556,7 @@ img {
 }
 
 .footer-desc {
-  color: var(--zinc-500);
+  color: var(--zinc-300);
   max-width: 24rem;
   font-weight: 300;
 }
@@ -1540,7 +1578,7 @@ img {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: var(--zinc-600);
+  color: var(--zinc-400);
 }
 
 .footer-nav-link {
@@ -1548,11 +1586,12 @@ img {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.15em;
+  color: var(--zinc-300);
   transition: color 0.2s;
 }
 
 .footer-nav-link:hover {
-  color: var(--indigo-400);
+  color: var(--indigo-300);
 }
 
 .footer-bottom {
@@ -1563,7 +1602,7 @@ img {
   gap: 1.5rem;
   font-size: 10px;
   font-family: var(--font-mono);
-  color: var(--zinc-600);
+  color: var(--zinc-400);
   text-transform: uppercase;
   letter-spacing: 0.15em;
 }
