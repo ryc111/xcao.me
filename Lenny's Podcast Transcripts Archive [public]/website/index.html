@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lenny's Podcast — Knowledge Base</title>
+  <meta name="description"
+    content="Explore 306 podcast episodes from Lenny's Podcast, organized across 13 product categories. Discover insights on product management, growth, AI, startups, and more.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="bg-ambient"></div>
+
+  <div class="app" id="app">
+    <!-- Hero Section -->
+    <header class="hero" id="hero">
+      <div class="hero-badge"><span>🎙️</span> Lenny's Podcast Transcript Archive</div>
+      <h1>Product Wisdom,<br><span class="gradient-text">Curated & Categorized</span></h1>
+      <p>Explore 306 podcast episodes across 13 categories — from product craft and growth to AI, startups, and
+        leadership.</p>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-number">306</div>
+          <div class="stat-label">Episodes</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">13</div>
+          <div class="stat-label">Categories</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">280+</div>
+          <div class="stat-label">Guests</div>
+        </div>
+      </div>
+      <div class="search-container">
+        <span class="search-icon">🔍</span>
+        <input type="text" class="search-input" id="searchInput" placeholder="Search categories, guests, or topics...">
+      </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" id="breadcrumb" style="display:none;"></nav>
+
+    <!-- Main Content Area -->
+    <main id="mainContent">
+      <!-- Category Grid (rendered by JS) -->
+      <div class="category-grid" id="categoryGrid"></div>
+      <!-- Cards Section (rendered by JS) -->
+      <div class="cards-section" id="cardsSection" style="display:none;"></div>
+    </main>
+
+    <!-- Detail Modal Overlay -->
+    <div class="detail-overlay" id="detailOverlay">
+      <div class="detail-panel" id="detailPanel"></div>
+    </div>
+  </div>
+
+  <script src="summaries.js"></script>
+  <script src="photos.js"></script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
